@@ -84,6 +84,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                             Log.w(TAG, "signInWithEmail:failed", task.getException());
                             Toast.makeText(LoginActivity.this, "Sign in failed",
                                     Toast.LENGTH_SHORT).show();
+                        }else {
+
                         }
 
                         // ...
