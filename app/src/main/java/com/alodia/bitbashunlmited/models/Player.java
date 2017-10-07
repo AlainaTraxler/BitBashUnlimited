@@ -6,7 +6,7 @@ import java.util.HashMap;
  * Created by Alaina Traxler on 10/7/2017.
  */
 
-public class player {
+public class Player {
     public String handle;
     public String email;
     public HashMap<String, String> bashes;
@@ -14,8 +14,8 @@ public class player {
     public int gameWins;
     public String userId;
 
-    public player(String handle, String email) {
-        this.handle = handle;
+    public Player(String email, String userId) {
+        handle = "???";
         this.email = email;
         bashWins = 0;
         gameWins = 0;

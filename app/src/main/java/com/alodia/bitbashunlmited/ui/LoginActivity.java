@@ -10,10 +10,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.alodia.bitbashunlmited.R;
+import com.alodia.bitbashunlmited.models.Player;
 import com.alodia.bitbashunlmited.utility.BaseActivity;
+import com.alodia.bitbashunlmited.utility.Constants;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -50,7 +54,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         }
     }
 
-    private void createUserWithEmailAndPassword(String _email, String _password){
+    private void createUserWithEmailAndPassword(final String _email, String _password){
         mAuth.createUserWithEmailAndPassword(_email, _password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -63,6 +67,14 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                         if (!task.isSuccessful()) {
                             Toast.makeText(LoginActivity.this, "Account creation failed",
                                     Toast.LENGTH_SHORT).show();
+                        }else {
+                            Toast.makeText(mContext, "Welcome to BitBash!", Toast.LENGTH_SHORT).show();
+                            DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
+                            String userId = mAuth.getCurrentUser().getUid();
+
+                            Player player = new Player(_email, userId);
+
+                            dbRef.child(Constants.DB_PLAYERS).child(userId).setValue(player);
                         }
 
                         // ...
@@ -70,7 +82,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 });
     }
 
-    private void signInWithEmailAndPassword(String _email, String _password){
+    private void signInWithEmailAndPassword(final String _email, String _password){
         mAuth.signInWithEmailAndPassword(_email, _password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -84,8 +96,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                             Log.w(TAG, "signInWithEmail:failed", task.getException());
                             Toast.makeText(LoginActivity.this, "Sign in failed",
                                     Toast.LENGTH_SHORT).show();
-                        }else {
-
                         }
 
                         // ...
