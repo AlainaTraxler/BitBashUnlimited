@@ -14,6 +14,8 @@ public class Player {
     public int gameWins;
     public String userId;
 
+    public Player(){}
+
     public Player(String email, String userId) {
         handle = "???";
         this.email = email;

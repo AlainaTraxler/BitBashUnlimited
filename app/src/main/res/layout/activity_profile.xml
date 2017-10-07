@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.alodia.bitbashunlmited.ui.ProfileActivity">
+
+    <TextView
+        android:id="@+id/textView_Handle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="167dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <EditText
+        android:id="@+id/editText_Handle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView_Handle"
+        android:layout_alignBottom="@+id/textView_Handle"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/transparent"
+        android:imeOptions="actionDone"
+        android:lines="1"
+        android:maxLength="3"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textSize="36sp"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="167dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:layout_below="@id/textView_Handle"
+        android:paddingBottom="14dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight=".5">
+
+            <TextView
+                android:id="@+id/textView_Bashes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bashes"
+                android:textAlignment="center"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textView_bashesWon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="X"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight=".5">
+
+            <TextView
+                android:id="@+id/textView_Games"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Games"
+                android:textAlignment="center"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textView_GamesWon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="X"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

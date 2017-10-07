@@ -9,11 +9,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.alodia.bitbashunlmited.R;
-import com.alodia.bitbashunlmited.ui.LoginActivity;
 import com.alodia.bitbashunlmited.ui.MainActivity;
+import com.alodia.bitbashunlmited.ui.ProfileActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -38,14 +37,14 @@ public class BaseActivity extends AppCompatActivity {
         if (mUser != null) {
             // User is signed in
             Log.d(TAG, "onAuthStateChanged:signed_in:" + mUser.getUid());
-            if(TAG.equals("LoginActivity")){
-                startActivity(new Intent(mContext, MainActivity.class));
+            if(TAG.equals("MainActivity")){
+                startActivity(new Intent(mContext, ProfileActivity.class));
             }
         } else {
             // User is signed out
             Log.d(TAG, "onAuthStateChanged:signed_out");
-            if(!TAG.equals("LoginActivity")){
-                startActivity(new Intent(mContext, LoginActivity.class));
+            if(!TAG.equals("MainActivity")){
+                startActivity(new Intent(mContext, MainActivity.class));
             }
         }
 
@@ -56,14 +55,14 @@ public class BaseActivity extends AppCompatActivity {
                 if (mUser != null) {
                     // User is signed in
 
-                    if(TAG.equals("LoginActivity")){
-                        startActivity(new Intent(mContext, MainActivity.class));
+                    if(TAG.equals("MainActivity")){
+                        startActivity(new Intent(mContext, ProfileActivity.class));
                     }
 //                    Log.d(TAG, "onAuthStateChanged:signed_in:" + mUser.getUid());
                 } else {
                     // User is signed out
-                    if(!TAG.equals("LoginActivity")){
-                        startActivity(new Intent(mContext, LoginActivity.class));
+                    if(!TAG.equals("MainActivity")){
+                        startActivity(new Intent(mContext, MainActivity.class));
                     }
                     Log.d(TAG, "onAuthStateChanged:signed_out");
                 }
